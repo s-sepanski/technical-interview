@@ -1,0 +1,5 @@
+# Prompt Libraries
+- Prompt - Cornell university mentions prompts have a ‘target output’ - [“Prompts are functions that map an example from a dataset to a natural language input and target output"](https://arxiv.org/abs/2202.01279?utm_source=chatgpt.com)
+
+## Evaluation-Driven Development
+- Evaluation-driven development: involves first creating a dataset of inputs (and optionally, expected outputs) and then defining a number of evaluation metrics. Every time you make a change to the prompt, you can run it over the dataset and then score the outputs. In this way, you can measure the performance of your prompt and make sure its improving, or at the very least not regressing. Tools like [LangSmith](https://blog.langchain.dev/promptim/?utm_source=chatgpt.com ) help with dataset curation and evaluation. 
