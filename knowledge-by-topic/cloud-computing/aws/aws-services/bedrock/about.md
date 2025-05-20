@@ -14,7 +14,7 @@
   - Can be customized with your own data 
   - "Titan Text Express" is part of the "Titan Text" family of models, is text-only (not multimodal) and tends to be cheap 
 ## Custom models - Customization Methods for FMs
-### Fine-tuning
+### Fine-tuning (Fine-tuning will be a big part of the AIF-C01 exam)
 - "Fine-tuning" - provide labeled data in order to train a model to improve performance on specific tasks
 - Data can be placed in S3
 ### Distillation
