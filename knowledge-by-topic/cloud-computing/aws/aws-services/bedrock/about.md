@@ -27,6 +27,12 @@
 - Requires experienced ML engineers
 - You must do the work to prepare the data, do the fine-tuning, evaluate the model
 - Running a fine-tuned model is more expensive (since provisioned throughput is required)
+#### Use Cases for Fine-Tuning
+- A chatbot designed with a particular persona or tone
+- A chatbot geared towards a specific purpose (e.g. assisting customers, crafting advertisements)
+- Training to use more up-to-date info than what the language model previously accessed
+- Training with exclusive data (e.g your historical emails or messages, records from customer service interactions)
+- Targeted use cases (categorization, assessing accuracy)
 #### Ways to Fine-Tune a Model
 ##### Instruction-based Fine Tuning
 Improves performance of a pre-trained FM on domain-specific tasks, e.g. further trained on a particular field or area of knowledge 
@@ -52,9 +58,24 @@ A subset of instruction-based fine-tuning in which you provide:
 "Transfer Learning" - the broad concept (in the ML field) of re-using a pre-trained model to adapt it to a new related task. Widely used for image classification (e.g. beyond teaching how recognize edges, teach it how to recognize images of a certain type) and for NLP (models like BERT and GPT)
 
 Fine-tuning (with Bedrock) IS A SPECIFIC TYPE OF TRANSFER LEARNING! So no that if "Transfer Learning" shows up on an exam about AWS AI services, they are probably referring to fine-tuning with Bedrock 
-## Modes
-- "Single prompt" mode - tells you input and output tokens, does NOT keep track of chat history
-- "Chat" mode - keeps track of chat history. Tells you input and output tokens
+## Evaluating a Model
+### Automatic Evaluation
+Bedrock offers "Automatic Evaluation" (allows you to evaluate model for quality control)
+
+Built-in task types:
+- Text summarization
+- Question and answer
+- Text classification
+- Open-ended text generation
+
+You must bring your own prompt dataset or use built-in curated prompt datasets
+
+Scores are calculated automatically 
+
+"Benchmark questions" (correspond to "Benchmark answers"):
+- Bring your own OR use the ones provided by AWS
+- There will be a "Judge Model" which will compare the similarity of generated answers to benchmark answers. That "Judge Model" will give a grading score (there are various ways to calculate the score using statisticial methods, e.g. BERTScore, F1... etc.)
+  - ![Judge Model Evaluation Process](judge-model-eval.jpg)
 
 ## Pricing
 - "Input tokens" & "output tokens" generated affect pricing
