@@ -15,17 +15,43 @@
   - "Titan Text Express" is part of the "Titan Text" family of models, is text-only (not multimodal) and tends to be cheap 
 ## Custom models - Customization Methods for FMs
 ### Fine-tuning (Fine-tuning will be a big part of the AIF-C01 exam)
-- "Fine-tuning" - provide labeled data in order to train a model to improve performance on specific tasks
-- Data can be placed in S3
+- "Fine-tuning" - provide labeled data in order to train a model to improve performance on specific tasks. Aka adapint a copy of a foundation model with your own data
+- Training data must:
+  - Be placed in S3
+  - Adhere to a specific format
+- Fine-tuning will change the weights of the base foundation model
+- You MUST use "Provisioned Throughput" to use a fine-tuned model
+- Not all models can be fine-tuned!
+- Re-training a FM requires a higher budget 
+  - Instruction-based fine-tuning is usually cheaper, as computations are less intense, and the amount of data required is usually less
+- Requires experienced ML engineers
+- You must do the work to prepare the data, do the fine-tuning, evaluate the model
+- Running a fine-tuned model is more expensive (since provisioned throughput is required)
+#### Ways to Fine-Tune a Model
+##### Instruction-based Fine Tuning
+Improves performance of a pre-trained FM on domain-specific tasks, e.g. further trained on a particular field or area of knowledge 
+
+Instruction-based fine-tuning uses **labeled examples** that are **prompt-response pairs**
+###### Single-Turn Messaging
+A subset of instruction-based fine-tuning in which you provide:
+  - System (optional): context for the conversation. eg "You are a helpful assisstant."
+  - Messages: An array of message objects, each containing:
+    - role: Either user or assistant. eg for role "user" give content "what is AWS" and for role "assistant" give content "it's Amazon Web Services"
+    - content: The text content of the message 
+##### Continued pre-training
+- "Continued pre-training" - Provide unlabeled data to pre-train a foundation model by familiarizing it with certain types of inputs. Also called "domain-adaptation fine-tuning", to make a model an expert in a specific domain 
+- Example: Feeding ALL AWS documentation to a model to make it an expert on AWS
 ### Distillation
 - "Distillation" - Generate synthetic data from a large foundation model (teacher) and use the synthetic data to fine-tune a smaller model (student) for your specific use case
-### Continued pre-training
-- "Continued pre-training" - Provide unlabeled data to pre-train a foundation model by familiarizing it with certain types of inputs 
 #### Hyperparameters (knowing these in detail is beyond the scope of the AIF-C01 cert)
 - Hyperparameters allow you to customize training
 - "Epochs" - total numver of iterations of all the training data in one cycle for the training model 
 - "Learning rate" - the rate at which model parameters are updated after each batch of training data
 - "Learning rate warmup steps" - number of iterations over which learning rate is gradually increased to the initial rate specified
+### Transfer Learning
+"Transfer Learning" - the broad concept (in the ML field) of re-using a pre-trained model to adapt it to a new related task. Widely used for image classification (e.g. beyond teaching how recognize edges, teach it how to recognize images of a certain type) and for NLP (models like BERT and GPT)
+
+Fine-tuning (with Bedrock) IS A SPECIFIC TYPE OF TRANSFER LEARNING! So no that if "Transfer Learning" shows up on an exam about AWS AI services, they are probably referring to fine-tuning with Bedrock 
 ## Modes
 - "Single prompt" mode - tells you input and output tokens, does NOT keep track of chat history
 - "Chat" mode - keeps track of chat history. Tells you input and output tokens
