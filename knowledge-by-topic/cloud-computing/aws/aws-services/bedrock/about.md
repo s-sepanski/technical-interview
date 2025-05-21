@@ -77,6 +77,10 @@ Scores are calculated automatically
 - There will be a "Judge Model" which will compare the similarity of generated answers to benchmark answers. That "Judge Model" will give a grading score (there are various ways to calculate the score using statisticial methods, e.g. BERTScore, F1... etc.)
   - ![Judge Model Evaluation Process](judge-model-eval.jpg)
 
+"Benchmark Datasets" - curated collections of data designed specifically for evaluatin the performance of language models (can cover wide range of topics, complexities, linguistic phenomena)
+- Helpful to mesaure: accuracy, speed, efficiency, scalability
+- Some benchmark datasets allow you to very quickly detect any kind of bias and potential discrimination against a group of people
+
 ## Pricing
 - "Input tokens" & "output tokens" generated affect pricing
 
