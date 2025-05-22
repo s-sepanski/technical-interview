@@ -1,5 +1,7 @@
 # technical-interview
-todo add guidance on how to use practice.py for spaced repetition
+
+## To Get Suggested Spaced Review
+Run `python3 review-problems.py`
 
 # Standards for this Project
 - This project aims to follow [my standards](https://gist.github.com/s-sepanski/4ec69de0cd6c5c003cb5d9bdeefffdc5). 
