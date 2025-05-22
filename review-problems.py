@@ -97,18 +97,6 @@ def is_valid_date(date_str):
         return False
 
 
-def is_example_or_placeholder(event):
-    # Check for common placeholders or example data
-    placeholders = [
-        'plaintext name of problem', 'hyperlink to problem', 'YYYY-MM-DD',
-        '[string-in-hyphenated-format]', 'plaintext comment'
-    ]
-    for value in event.values():
-        if value in placeholders:
-            return True
-    return False
-
-
 def main():
     if not os.path.exists(PROBLEMS_MD_PATH):
         print(f"File not found: {PROBLEMS_MD_PATH}")
@@ -117,9 +105,6 @@ def main():
     valid_events = []
     errors = []
     for event in review_events:
-        if is_example_or_placeholder(event):
-            errors.append(f"Row with problem name '{event.get('Problem Name', '')}' appears to be example or placeholder data. Please replace with real problem information.")
-            continue
         if not is_valid_date(event.get('Date Solved (YYYY-MM-DD)', '')):
             errors.append(f"Row with problem name '{event.get('Problem Name', '')}' has an invalid or missing date. Please use format YYYY-MM-DD.")
             continue
