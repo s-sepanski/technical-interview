@@ -47,3 +47,17 @@ MCP servers provide 3 primitives:
 1. Resources: File-like data that can be read by clients (like API responses or file contents)
 2. Tools: Functions that can be called by the LLM (with user approval)
 3. Prompts: Pre-written templates that help users accomplish specific tasks
+
+## Example - Implement MCP Server in Python
+`from mcp.server.fastmcp import FastMCP`
+
+use `@mcp.tool()` decorator over any arbitrary method
+
+`@mcp.tool()` - will allow any MCP client to call the decorated method as a "tool"
+
+Meanwhile, using Claude Desktop as the MCP client, you set up some special `.json` config file pointed to the directory of your MCP server (since Claude supports MCP, they allow configuring Claude as an MCP client via the config file)
+
+When you next open Claude, you should see that it detects that one MCP tool is available. Claude will ask you for permission before using the tool
+
+## Example 2 - Configure an MCP CLIENT In Python
+`from mcp.client.stdio import stdio_client`
