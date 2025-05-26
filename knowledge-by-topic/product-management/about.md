@@ -1,0 +1,2 @@
+# Product Management
+Remember what Marty Cagan said about product - upskilling for individual teammates can add value, but ONLY SO LONG as it doesn't inhibit them from contributing value towards the product (which is the primary goal of the team). ← Approximately paraphrased from "Inspired" by Marty Cagan

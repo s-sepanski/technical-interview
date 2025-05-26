@@ -59,5 +59,10 @@ Meanwhile, using Claude Desktop as the MCP client, you set up some special `.jso
 
 When you next open Claude, you should see that it detects that one MCP tool is available. Claude will ask you for permission before using the tool
 
+So you could write a tool that executes a command on your computer, and the LLM client can execute that.
+
 ## Example 2 - Configure an MCP CLIENT In Python
+`from mcp import ClientSession, StdioServerParameters # MCP session management`
 `from mcp.client.stdio import stdio_client`
+
+It is possible to define a method in python such that an MCP client connects to an MCP server and requests a list of available tools
