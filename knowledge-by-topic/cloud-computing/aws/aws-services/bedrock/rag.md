@@ -1,6 +1,15 @@
 # RAG with Bedrock
 RAG with Bedrock works like this: for any given prompt, Bedrock searches for relevant information in a "Knowledge Base". The Knowledge Base is backed by a Vector Database. To create the data in the vector database:
   - Bedrock takes care of eerything. Bedrock takes care of creating Vector Embeddings in the database of your choice based on your data
+
+When you use RAG in the AWS console, the sources (Knowledge Bases) used for RAG will be cited (just like in NotebookLM)
+## Use Cases for RAG with Bedrock
+- customer service chatbot
+  - knowledge base - products, features, specifications, troubleshooting guides, and FAQs
+- legal reseaarch and analysis
+  - knowledge base - laws, regulations, case precedents, legal opinions, expert analysis
+- healthcare question-answering
+  - knowledge base - diseases, treatments, clinical guidelines, research papers, patients, etc
 ## Can you use a google cloud database for generating vector embeddings for amazon bedrock?
 You can use a Google Cloud database (such as BigQuery, Firestore, or AlloyDB) to store and manage your data, but generating vector embeddings for Amazon Bedrock typically involves using Bedrock’s own models or other embedding models (like those from AWS SageMaker or open-source libraries).
 
@@ -23,15 +32,29 @@ Yes, you can use a Google Cloud database to store data and embeddings, but you m
 Vector embeddings tend to be smaller to store than the size of the original text
 ## AWS Services That Can Be Used as Your Vector Dabase to Store Vector Embedings
 - OpenSearch service (default if you don't specify a database)
+  - search and analytics database
+  - real time similarity queries
+  - scalable index management
+  - fast nearest-neighbor (kNN) search capability 
+- Amazon DocumentDB (MongoDB compatible)
+  - NoSQL database
+  - real time similarity queries
 - Amazon Aurora
-- Other options: MongoDB, Redis, Pinecone
+- Amazon RDS for PostgreSQL 
+- Amazon Neptune
+- Other options: Redis, Pinecone
 ## Embedding Models
 Embedding models - determine how data is put into vector stores
 Options: Amazon Titon OR Cohere (even though these are also names of foundation models, the embedding model and foundation model can be different)
 
 RAG files are broken into document chunks by the embedding model then stored in a vector database 
 ## Where RAG files can be stored
-RAG files can be stored in S3
+RAG files can be stored in:
+- Amazon S3
+- Confluence
+- Microsoft SharePoint
+- Salesforce
+- Web pages (eg your website, your social media feed, etc)
 
 ### With amazon bedrock can i store my RAG files on-prem instead of in S3? Link to relevant docs
 No, Amazon Bedrock currently requires your Retrieval-Augmented Generation (RAG) data to be stored in Amazon S3. Bedrock’s Knowledge Bases feature is designed to connect to data in S3 buckets, and there is no built-in support for directly accessing on-premises file storage.
