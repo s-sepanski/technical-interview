@@ -1,6 +1,6 @@
 # Arrays
 
-Static arrays stay the same size, whereas dynamic arrays can grow or shrink
+Each item in an array is stored contiguously in memory. Static arrays stay the same size, whereas dynamic arrays can grow or shrink
 
 ## Terms
 Array size - sometimes used to refer to capacity of the array
