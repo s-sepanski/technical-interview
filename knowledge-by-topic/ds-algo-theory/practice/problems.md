@@ -1,6 +1,6 @@
 | Problem Name              | Problem Link         | Date Solved (YYYY-MM-DD) | Difficulty (Easy/Medium/Hard)      | Tags                          | Minutes to Solve | Feel Could Benefit From Review? (Y/N) | Comment           |
 | ------------------------- | -------------------- | ----------- | ---------------- | ----------------------------- | ------------- | ------------------------------- | ----------------- |
-| plaintext name of problem | hyperlink to problem | 2025-05-05  | Medium | [string-in-hyphenated-format] | 30         | Y                           | plaintext comment |
+| remove duplicates from sorted array | https://neetcode.io/problems/remove-duplicates-from-sorted-array?list=blind75 | 2025-6-05  | Easy | [string-in-hyphenated-format] | >10         | Y                           | ocupo ver el video del mismismo bato |
 
 | Problem Tags                |
 | --------------------------- |

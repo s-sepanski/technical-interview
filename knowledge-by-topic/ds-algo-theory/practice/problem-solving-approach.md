@@ -11,3 +11,8 @@ Steps:
 
 ## System Design Problems
 TBD
+
+## Time Goals
+Easy - 10 min or less
+Medium - 25 min or less
+Hard - 45 min or less
